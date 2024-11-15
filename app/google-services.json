@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "33674830773",
+    "firebase_url": "https://appeva2-f56ad-default-rtdb.firebaseio.com",
+    "project_id": "appeva2-f56ad",
+    "storage_bucket": "appeva2-f56ad.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33674830773:android:2464be6442345667bd2ffc",
+        "android_client_info": {
+          "package_name": "com.example.evaluacion2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqltZ3kWft4CDKG_86Gp1RjXeefE5UDn4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

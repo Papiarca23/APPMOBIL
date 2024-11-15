@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/ingNombreDisp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Dispositivo" />
+
+    <EditText
+        android:id="@+id/ingClaveUnica"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Clave Única del Dispositivo" />
+
+    <Button
+        android:id="@+id/btnParearDisp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Parear Dispositivo" />
+
+    <TextView
+        android:id="@+id/dispPareados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dispositivos Pareados" />
+
+    <ListView
+        android:id="@+id/listaDisp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
