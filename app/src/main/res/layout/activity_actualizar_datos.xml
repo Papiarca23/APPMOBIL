@@ -8,28 +8,45 @@
     tools:context=".ActualizarDatos">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/ingNuevoNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nuevo Nombre"/>
+            android:hint="Nuevo Nombre" />
 
         <EditText
             android:id="@+id/ingNuevaContrasena"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nueva Contraseña"/>
+            android:hint="Nueva Contraseña" />
 
         <Button
             android:id="@+id/btnActualizar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Actualizar"/>
+            android:text="Actualizar" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnVolver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volver" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
