@@ -82,5 +82,11 @@
             android:layout_marginTop="16dp"
             android:text="Cerrar Sesión" />
 
+        <Button
+            android:id="@+id/btnListarUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar Usuario" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

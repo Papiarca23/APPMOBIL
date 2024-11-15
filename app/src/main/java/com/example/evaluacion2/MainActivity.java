@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btnEmparejados, btnHistorial, btnEliminarCuenta, btnCerrarSesion, btnActualizarDatos, btnBuscarDispositivo;
+    private Button btnEmparejados, btnHistorial, btnEliminarCuenta, btnCerrarSesion, btnActualizarDatos, btnListaUsuario;
     private DatabaseReference Basededatos;
     private String nombreUsuario;  // Para guardar el usuario actual
 
@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
         btnCerrarSesion = findViewById(R.id.btnCerrarSesion);
         Basededatos = FirebaseDatabase.getInstance().getReference("usuarios");
         btnActualizarDatos = findViewById(R.id.btnActualizarDatos);
-        btnBuscarDispositivo = findViewById(R.id.btnBuscarDispositivo);
+        btnListaUsuario = findViewById(R.id.btnListarUsuario);
 
 
-        // Recibimos el nombre de usuario desde PantallaLogin
+                // Recibimos el nombre de usuario desde PantallaLogin
         nombreUsuario = getIntent().getStringExtra("nombreUsuario");
 
         btnEliminarCuenta.setOnClickListener(new View.OnClickListener() {
@@ -70,51 +70,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        btnBuscarDispositivo = findViewById(R.id.btnBuscarDispositivo);
-        btnBuscarDispositivo.setOnClickListener(v -> buscarDispositivo(nombreUsuario));
+        btnListaUsuario.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, ListaUsuarios.class);
+            startActivity(intent);
+        });
+
     }
-    private void buscarDispositivo(String nombreUsuario) {
-        Basededatos.child("usuarios").child(nombreUsuario).child("dispositivos")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            List<String> dispositivosEncontrados = new ArrayList<>();
-
-                            for (DataSnapshot dispositivoSnapshot : dataSnapshot.getChildren()) {
-                                String nombreDispositivo = dispositivoSnapshot.child("nombre").getValue(String.class);
-                                String claveDispositivo = dispositivoSnapshot.child("clave").getValue(String.class);
-                                String estadoDispositivo = dispositivoSnapshot.child("estado").getValue(String.class);
-
-                                if (nombreDispositivo != null && claveDispositivo != null && estadoDispositivo != null) {
-                                    dispositivosEncontrados.add(String.format("- %s (Clave: %s, Estado: %s)", nombreDispositivo, claveDispositivo, estadoDispositivo));
-                                }
-                            }
-
-                            if (dispositivosEncontrados.isEmpty()) {
-                                Toast.makeText(MainActivity.this, "No se encontraron dispositivos para este usuario", Toast.LENGTH_SHORT).show();
-                            } else {
-                                StringBuilder dispositivosEncontradosText = new StringBuilder("Dispositivos emparejados:\n");
-                                for (String dispositivo : dispositivosEncontrados) {
-                                    dispositivosEncontradosText.append(dispositivo).append("\n");
-                                }
-                                Toast.makeText(MainActivity.this, dispositivosEncontradosText.toString(), Toast.LENGTH_LONG).show();
-                            }
-                        } else {
-                            Toast.makeText(MainActivity.this, "No se encontraron dispositivos para este usuario", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(MainActivity.this, "Error en la consulta: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
-
-
-
-
 
     private void cerrarSesion() {
         Intent intent = new Intent(MainActivity.this, PantallaLogin.class);
