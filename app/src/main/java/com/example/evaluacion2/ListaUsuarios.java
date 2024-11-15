@@ -2,6 +2,7 @@ package com.example.evaluacion2;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +11,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import android.view.View;
+
 
 import java.util.ArrayList;
 
@@ -31,6 +34,14 @@ public class ListaUsuarios extends AppCompatActivity {
         // Configurar el adaptador para el ListView
         adaptador = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaDatosUsuarios);
         listViewUsuarios.setAdapter(adaptador);
+
+        Button btnVolver = findViewById(R.id.btnVolver);
+        btnVolver.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                finish();
+            }
+        });
 
         // Llamar al método para obtener los datos de todos los usuarios
         obtenerTodosLosUsuarios();

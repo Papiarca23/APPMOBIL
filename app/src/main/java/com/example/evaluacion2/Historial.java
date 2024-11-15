@@ -7,7 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import java.util.ArrayList;
 
@@ -28,5 +31,13 @@ public class Historial extends AppCompatActivity {
 
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, historialAcciones);
         lvAcciones.setAdapter(adapter);
+
+        Button btnVolver = findViewById(R.id.btnVolver);
+        btnVolver.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                finish();
+            }
+        });
     }
 }
