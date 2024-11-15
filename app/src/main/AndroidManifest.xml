@@ -40,7 +40,7 @@
             android:name=".Registro"
             android:exported="false" />
         <activity
-            android:name=".ListaDispositivos"
+            android:name=".ListaUsuarios"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
